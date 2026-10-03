@@ -41,7 +41,8 @@ interface UiState {
   requestFit: () => void
 }
 
-export const ZOOM_X = { min: 12, max: 400 }
+// Low minimum so "fit to view" can show 32 bars on a laptop screen.
+export const ZOOM_X = { min: 6, max: 400 }
 export const ZOOM_Y = { min: 6, max: 32 }
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v))

@@ -59,17 +59,17 @@
 
 /* Variants */
 .primary {
-  background: var(--accent);
+  background: var(--accent-fill);
   color: var(--accent-contrast);
   box-shadow: var(--shadow-sm);
 }
 
 .primary:hover:not(:disabled) {
-  background: var(--accent-hover);
+  background: var(--accent-fill-hover);
 }
 
 .primary:active:not(:disabled) {
-  background: var(--accent-active);
+  background: var(--accent-fill-hover);
 }
 
 .secondary {
@@ -108,7 +108,7 @@
 .pressed:hover:not(:disabled) {
   background: var(--accent-soft);
   border-color: transparent;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* Icon-only */

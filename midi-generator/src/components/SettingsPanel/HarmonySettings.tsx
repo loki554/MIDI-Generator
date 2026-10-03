@@ -15,10 +15,10 @@ export function HarmonySettings() {
 
   return (
     <>
-      <Field label={t('settings.progression')} htmlFor={id}>
+      <Field label={t('settings.progression')} htmlFor={id} info={t('tips.progression')}>
         <Select id={id} value={progression} onChange={(v) => patchGlobal({ progression: v })} options={progressionOptions(t)} />
       </Field>
-      <Field label={t('settings.chordsPerBar')}>
+      <Field label={t('settings.chordsPerBar')} info={t('tips.chordsPerBar')}>
         <Segmented<ChordsPerBar>
           label={t('settings.chordsPerBar')}
           value={String(chordsPerBar) as ChordsPerBar}

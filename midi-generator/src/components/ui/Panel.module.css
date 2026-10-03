@@ -135,3 +135,7 @@
   max-width: 360px;
   font-size: var(--text-sm);
 }
+
+.emptyAction {
+  margin-top: var(--space-3);
+}

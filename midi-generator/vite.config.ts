@@ -9,6 +9,18 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        // Framework code changes rarely: keep it in its own long-cached chunk.
+        manualChunks(id) {
+          if (/node_modules[\\/](react|react-dom|scheduler|i18next|react-i18next|i18next-browser-languagedetector)[\\/]/.test(id)) {
+            return 'vendor'
+          }
+        },
+      },
+    },
+  },
   test: {
     include: ['src/**/*.test.ts'],
     environment: 'node',

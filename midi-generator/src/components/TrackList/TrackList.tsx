@@ -28,7 +28,8 @@ function TrackRow({ track, selected }: { track: Track; selected: boolean }) {
       style={{ '--part-color': track.color } as CSSProperties}
       onClick={() => selectTrack(track.id)}
     >
-      <span className={styles.grip} draggable onDragStart={onDragStart} title={t('tracks.drag')} aria-label={t('tracks.drag')}>
+      {/* Mouse-only drag source; the download button next to it is the accessible equivalent. */}
+      <span className={styles.grip} draggable onDragStart={onDragStart} title={t('tracks.drag')} aria-hidden="true">
         <GripVertical />
       </span>
       <button type="button" className={styles.name} aria-pressed={selected} onClick={() => selectTrack(track.id)}>

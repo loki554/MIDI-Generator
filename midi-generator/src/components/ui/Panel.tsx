@@ -65,15 +65,18 @@ export interface EmptyStateProps {
   icon?: ReactNode
   title: ReactNode
   hint?: ReactNode
+  /** Call to action, e.g. a button. */
+  action?: ReactNode
   className?: string
 }
 
-export function EmptyState({ icon, title, hint, className }: EmptyStateProps) {
+export function EmptyState({ icon, title, hint, action, className }: EmptyStateProps) {
   return (
     <div className={cx(styles.empty, className)}>
       {icon && <div className={styles.emptyIcon}>{icon}</div>}
       <p className={styles.emptyTitle}>{title}</p>
       {hint && <p className={styles.emptyHint}>{hint}</p>}
+      {action && <div className={styles.emptyAction}>{action}</div>}
     </div>
   )
 }

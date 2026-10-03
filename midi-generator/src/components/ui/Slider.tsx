@@ -12,6 +12,8 @@ export interface SliderProps {
   /** Formats the value shown next to the label and announced to screen readers. */
   format?: (value: number) => string
   hint?: ReactNode
+  /** Explanation shown in an (i) tooltip next to the label. */
+  info?: string
   disabled?: boolean
   className?: string
 }
@@ -57,6 +59,7 @@ export function Slider({
   step = 1,
   format = String,
   hint,
+  info,
   disabled,
   className,
 }: SliderProps) {
@@ -65,7 +68,7 @@ export function Slider({
   const text = format(value)
 
   return (
-    <Field label={label} htmlFor={id} value={text} hint={hint} className={className}>
+    <Field label={label} htmlFor={id} value={text} hint={hint} info={info} className={className}>
       <input
         id={id}
         type="range"

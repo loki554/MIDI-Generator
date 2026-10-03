@@ -3,10 +3,9 @@
     "appName": "MIDI Generator",
     "tagline": "Algorithmic MIDI patterns",
     "close": "Close",
-    "comingSoon": "Coming soon",
     "auto": "Auto",
-    "on": "On",
-    "off": "Off"
+    "off": "Off",
+    "moreInfo": "More info"
   },
   "header": {
     "language": "Language",
@@ -59,7 +58,6 @@
     "progressionMajor": "Major",
     "progressionMinor": "Minor",
     "chordsPerBar": "Chord changes",
-    "chordsPerBarValue": "{{value}} per bar",
     "seed": "Seed",
     "seedRandom": "Random seed",
     "seedLock": "Keep this seed when generating",
@@ -71,7 +69,6 @@
     "octave": "Octave",
     "density": "Density",
     "fillEvery": "Fill every",
-    "fillEveryValue": "{{count}} bars",
     "ghostNotes": "Ghost notes",
     "hihatRolls": "Hi-hat rolls",
     "crashOnSection": "Crash on sections",
@@ -139,7 +136,8 @@
       "zoom": "Ctrl+wheel: zoom time · Alt+wheel: zoom rows.",
       "ruler": "Ruler: click to move the cursor, drag to set a loop, double-click to clear it.",
       "keys": "Del delete · Ctrl+A/C/X/V/D · ↑↓ semitone (Shift: octave) · ←→ move by snap · Ctrl+Z/Y undo/redo."
-    }
+    },
+    "emptyAction": "Generate a pattern"
   },
   "export": {
     "title": "Export",
@@ -258,5 +256,20 @@
     "tremolo": "Tremolo",
     "groove": "Groove",
     "halfTime": "Half-time"
+  },
+  "tips": {
+    "scale": "Auto picks a scale that suits the genre and mood. Pentatonic and blues scales take their chords from the parent seven-note scale.",
+    "swing": "Delays every second sixteenth (or eighth in jazz, shuffle and stoner rock). 100% is a full triplet feel.",
+    "complexity": "Higher values add more notes, busier rhythms and richer chords (sevenths, ninths).",
+    "humanize": "Small random shifts in timing and velocity so the pattern sounds less mechanical. The first note of the loop stays on the grid.",
+    "progression": "Auto chooses a preset that fits the genre and key, or generates one with a Markov chain of chord functions.",
+    "chordsPerBar": "How often the chord changes: ½ = every two bars, 2 = twice per bar.",
+    "voiceLeading": "Chooses chord inversions so each voice moves as little as possible between chords.",
+    "approachNotes": "Before a chord change the bass leads into the next root by step or chromatically.",
+    "structure": "Phrase plan for the melody: equal letters repeat the same motif, new letters bring new material.",
+    "repetition": "How literally a repeated motif comes back. Lower values develop it: shifted, inverted or varied.",
+    "palmMute": "Share of short, muted chugs versus ringing open notes.",
+    "chromaticism": "Chance of chromatic runs into chord changes and dark colour (♭2, tritone) over the tonic.",
+    "density": "Scales the optional, probabilistic hits of the groove. Fixed backbeat hits always play."
   }
 }

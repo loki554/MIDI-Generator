@@ -122,3 +122,9 @@
 .box input:checked + .check {
   opacity: 1;
 }
+
+.checkboxRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}

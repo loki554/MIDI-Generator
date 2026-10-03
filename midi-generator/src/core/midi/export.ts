@@ -1,5 +1,4 @@
 import { Midi } from '@tonejs/midi'
-import { zipSync } from 'fflate'
 import { keyName } from '../theory/scales'
 import type { Project, Track } from '../types'
 
@@ -57,16 +56,6 @@ export function projectToMidi(project: Project, opts: ExportOptions = {}): Uint8
 
 export function trackToMidi(project: Project, track: Track, opts: Omit<ExportOptions, 'tracks'> = {}): Uint8Array {
   return projectToMidi(project, { ...opts, tracks: [track] })
-}
-
-/** A ZIP with one .mid file per track. */
-export function projectToZip(project: Project, opts: Omit<ExportOptions, 'tracks'> = {}): Uint8Array {
-  const files: Record<string, Uint8Array> = {}
-  for (const track of project.tracks) {
-    files[trackFileName(project, track)] = trackToMidi(project, track, opts)
-  }
-  // MIDI files are tiny and already compact: store without compression.
-  return zipSync(files, { level: 0 })
 }
 
 /* ---------- File names ---------- */

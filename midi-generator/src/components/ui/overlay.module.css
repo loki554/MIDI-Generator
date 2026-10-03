@@ -99,3 +99,43 @@
     transform: translateY(-4px);
   }
 }
+
+/* InfoTip */
+.infoButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-faint);
+  cursor: help;
+  vertical-align: middle;
+}
+
+.infoButton:hover,
+.infoButton:focus-visible {
+  color: var(--accent-text);
+}
+
+.infoButton svg {
+  width: 13px;
+  height: 13px;
+}
+
+.infoBubble {
+  position: fixed;
+  z-index: 100;
+  padding: var(--space-2) var(--space-3);
+  background: var(--text);
+  color: var(--bg);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  pointer-events: none;
+  animation: popIn var(--duration) var(--ease);
+}

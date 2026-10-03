@@ -275,13 +275,10 @@ export function PianoRoll({ project, track }: PianoRollProps) {
     const el = scrollerRef.current
     const l = latestRef.current
     if (!el || !l || !measured) return
-    if (l.rows.drums) {
-      el.scrollTop = 0
-      return
-    }
+    // Centre on the median note (drums: the kit pieces in use, e.g. kick and snare).
     const pitches = l.track.notes.map((n) => n.pitch).sort((a, b) => a - b)
-    const mid = pitches.length ? pitches[Math.floor(pitches.length / 2)] : 60
-    const row = l.rows.rowOf.get(mid) ?? 60
+    const mid = pitches.length ? pitches[Math.floor(pitches.length / 2)] : l.rows.drums ? 38 : 60
+    const row = l.rows.rowOf.get(mid) ?? 0
     el.scrollTop = Math.max(0, row * l.view.zoomY - (l.view.height - RULER_H) / 2)
   }, [track.id, project.id, measured])
 
@@ -555,7 +552,16 @@ export function PianoRoll({ project, track }: PianoRollProps) {
 
   return (
     <div className={styles.root}>
-      <div ref={scrollerRef} className={styles.scroller} onScroll={requestDraw}>
+      <div
+        ref={scrollerRef}
+        className={styles.scroller}
+        onScroll={requestDraw}
+        // Focusable so the editor can be scrolled with the keyboard; editing shortcuts work here too.
+        tabIndex={0}
+        role="group"
+        aria-label={t('pianoRoll.title')}
+        data-piano-roll
+      >
         <div
           className={styles.spacer}
           style={{ width: Math.max(content.width + 24, size.width), height: Math.max(content.height, size.height) }}

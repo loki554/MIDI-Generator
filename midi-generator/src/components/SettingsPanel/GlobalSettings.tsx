@@ -44,7 +44,7 @@ export function GlobalSettings() {
             options={keyOptions(spellingScale)}
           />
         </Field>
-        <Field label={t('settings.scale')} htmlFor={ids.scale}>
+        <Field label={t('settings.scale')} htmlFor={ids.scale} info={t('tips.scale')}>
           <Select
             id={ids.scale}
             value={g.scale}
@@ -99,9 +99,10 @@ export function GlobalSettings() {
         format={(v) => t('settings.barsValue', { count: v })}
         onChange={(bars) => patchGlobal({ bars })}
       />
-      <Slider label={t('settings.swing')} value={g.swing} min={0} max={1} step={0.01} format={percent} onChange={(swing) => patchGlobal({ swing })} />
+      <Slider label={t('settings.swing')} info={t('tips.swing')} value={g.swing} min={0} max={1} step={0.01} format={percent} onChange={(swing) => patchGlobal({ swing })} />
       <Slider
         label={t('settings.complexity')}
+        info={t('tips.complexity')}
         value={g.complexity}
         min={0}
         max={1}
@@ -111,6 +112,7 @@ export function GlobalSettings() {
       />
       <Slider
         label={t('settings.humanize')}
+        info={t('tips.humanize')}
         value={g.humanize}
         min={0}
         max={1}

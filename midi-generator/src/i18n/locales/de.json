@@ -3,10 +3,9 @@
     "appName": "MIDI Generator",
     "tagline": "Algorithmische MIDI-Patterns",
     "close": "Schließen",
-    "comingSoon": "Demnächst",
     "auto": "Auto",
-    "on": "An",
-    "off": "Aus"
+    "off": "Aus",
+    "moreInfo": "Mehr Infos"
   },
   "header": {
     "language": "Sprache",
@@ -59,7 +58,6 @@
     "progressionMajor": "Dur",
     "progressionMinor": "Moll",
     "chordsPerBar": "Akkordwechsel",
-    "chordsPerBarValue": "{{value}} pro Takt",
     "seed": "Seed",
     "seedRandom": "Zufälliger Seed",
     "seedLock": "Seed beim Generieren behalten",
@@ -71,7 +69,6 @@
     "octave": "Oktave",
     "density": "Dichte",
     "fillEvery": "Fill alle",
-    "fillEveryValue": "{{count}} Takte",
     "ghostNotes": "Ghost Notes",
     "hihatRolls": "Hi-Hat-Rolls",
     "crashOnSection": "Crash am Abschnittsbeginn",
@@ -139,7 +136,8 @@
       "zoom": "Strg+Mausrad: Zeit zoomen · Alt+Mausrad: Zeilen zoomen.",
       "ruler": "Lineal: Klick setzt den Cursor, Ziehen setzt eine Schleife, Doppelklick entfernt sie.",
       "keys": "Entf löschen · Strg+A/C/X/V/D · ↑↓ Halbton (Umschalt: Oktave) · ←→ um Rasterschritt · Strg+Z/Y."
-    }
+    },
+    "emptyAction": "Pattern generieren"
   },
   "export": {
     "title": "Export",
@@ -258,5 +256,20 @@
     "tremolo": "Tremolo",
     "groove": "Groove",
     "halfTime": "Half-Time"
+  },
+  "tips": {
+    "scale": "Auto wählt eine zur Stimmung und zum Genre passende Skala. Pentatonik und Blues nehmen ihre Akkorde aus der übergeordneten siebenstufigen Skala.",
+    "swing": "Verzögert jede zweite Sechzehntel (bei Jazz, Shuffle und Stoner Rock die Achtel). 100 % entsprechen einem vollen Triolen-Feel.",
+    "complexity": "Höhere Werte bringen mehr Noten, dichtere Rhythmen und reichere Akkorde (Sept-, Nonakkorde).",
+    "humanize": "Kleine zufällige Abweichungen in Timing und Lautstärke, damit das Pattern weniger mechanisch klingt. Die erste Note der Schleife bleibt im Raster.",
+    "progression": "Auto wählt eine zu Genre und Tonart passende Vorlage oder erzeugt eine Folge per Markow-Kette über Akkordfunktionen.",
+    "chordsPerBar": "Wie oft der Akkord wechselt: ½ = alle zwei Takte, 2 = zweimal pro Takt.",
+    "voiceLeading": "Wählt Umkehrungen so, dass sich jede Stimme zwischen den Akkorden möglichst wenig bewegt.",
+    "approachNotes": "Vor einem Akkordwechsel führt der Bass schrittweise oder chromatisch zum nächsten Grundton.",
+    "structure": "Phrasenplan der Melodie: gleiche Buchstaben wiederholen das Motiv, neue bringen neues Material.",
+    "repetition": "Wie wörtlich ein Motiv wiederkehrt. Niedrigere Werte entwickeln es: verschoben, umgekehrt oder variiert.",
+    "palmMute": "Anteil kurzer, gedämpfter Chugs gegenüber offen klingenden Noten.",
+    "chromaticism": "Wahrscheinlichkeit chromatischer Läufe in Akkordwechsel und dunkler Farbe (♭2, Tritonus) über der Tonika.",
+    "density": "Skaliert die optionalen, zufälligen Schläge des Grooves. Feste Backbeat-Schläge spielen immer."
   }
 }

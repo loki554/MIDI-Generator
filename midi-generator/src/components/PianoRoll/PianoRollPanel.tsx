@@ -1,8 +1,9 @@
-import { Piano } from 'lucide-react'
+import { Piano, Sparkles } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { generate } from '../../store/actions'
 import { useProjectStore } from '../../store/projectStore'
 import { useUiStore } from '../../store/uiStore'
-import { EmptyState, Panel } from '../ui'
+import { Button, EmptyState, Panel } from '../ui'
 import { PianoRoll } from './PianoRoll'
 import { Toolbar } from './Toolbar'
 
@@ -20,7 +21,16 @@ export function PianoRollPanel({ className }: { className?: string }) {
       {project && track ? (
         <PianoRoll project={project} track={track} />
       ) : (
-        <EmptyState icon={<Piano />} title={t('pianoRoll.empty')} hint={t('pianoRoll.emptyHint')} />
+        <EmptyState
+          icon={<Piano />}
+          title={t('pianoRoll.empty')}
+          hint={t('pianoRoll.emptyHint')}
+          action={
+            <Button variant="primary" icon={<Sparkles />} onClick={generate}>
+              {t('pianoRoll.emptyAction')}
+            </Button>
+          }
+        />
       )}
     </Panel>
   )

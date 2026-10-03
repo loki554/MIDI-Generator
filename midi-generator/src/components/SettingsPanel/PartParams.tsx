@@ -35,13 +35,14 @@ function usePart<P extends PartType>(part: P) {
 
 function SelectField<T extends string>(props: {
   label: string
+  info?: string
   value: T
   options: ReadonlyArray<SelectOption | SelectGroup>
   onChange: (v: T) => void
 }) {
   const id = useId()
   return (
-    <Field label={props.label} htmlFor={id}>
+    <Field label={props.label} htmlFor={id} info={props.info}>
       <Select id={id} value={props.value} onChange={(v) => props.onChange(v as T)} options={props.options} />
     </Field>
   )
@@ -76,7 +77,7 @@ function DrumParams() {
   const [p, patch] = usePart('drums')
   return (
     <>
-      <Slider label={t('settings.density')} value={p.density} min={0} max={1} step={0.01} format={percent} onChange={(density) => patch({ density })} />
+      <Slider label={t('settings.density')} info={t('tips.density')} value={p.density} min={0} max={1} step={0.01} format={percent} onChange={(density) => patch({ density })} />
       <Field label={t('settings.fillEvery')}>
         <Segmented
           label={t('settings.fillEvery')}
@@ -108,7 +109,7 @@ function BassParams() {
       <InstrumentField part="bass" />
       <SelectField label={t('settings.style')} value={p.style} options={enumOptions(t, BASS_STYLES, 'bassStyles')} onChange={(style) => patch({ style })} />
       <OctaveField value={p.octave} min={1} max={3} onChange={(octave) => patch({ octave })} />
-      <Checkbox label={t('settings.approachNotes')} checked={p.approachNotes} onChange={(approachNotes) => patch({ approachNotes })} />
+      <Checkbox label={t('settings.approachNotes')} info={t('tips.approachNotes')} checked={p.approachNotes} onChange={(approachNotes) => patch({ approachNotes })} />
     </>
   )
 }
@@ -124,7 +125,7 @@ function ChordParams() {
         <SelectField label={t('settings.rhythm')} value={p.rhythm} options={enumOptions(t, CHORD_RHYTHMS, 'chordRhythms')} onChange={(rhythm) => patch({ rhythm })} />
       </div>
       <OctaveField value={p.octave} min={2} max={6} onChange={(octave) => patch({ octave })} />
-      <Checkbox label={t('settings.voiceLeading')} checked={p.voiceLeading} onChange={(voiceLeading) => patch({ voiceLeading })} />
+      <Checkbox label={t('settings.voiceLeading')} info={t('tips.voiceLeading')} checked={p.voiceLeading} onChange={(voiceLeading) => patch({ voiceLeading })} />
     </>
   )
 }
@@ -144,9 +145,10 @@ function MelodyParams() {
         format={(v) => t('settings.rangeValue', { count: v })}
         onChange={(range) => patch({ range })}
       />
-      <Slider label={t('settings.repetition')} value={p.repetition} min={0} max={1} step={0.01} format={percent} onChange={(repetition) => patch({ repetition })} />
+      <Slider label={t('settings.repetition')} info={t('tips.repetition')} value={p.repetition} min={0} max={1} step={0.01} format={percent} onChange={(repetition) => patch({ repetition })} />
       <SelectField
         label={t('settings.structure')}
+        info={t('tips.structure')}
         value={p.structure}
         options={[{ value: 'auto', label: t('common.auto') }, ...STRUCTURES.map((s) => ({ value: s, label: s }))]}
         onChange={(structure) => patch({ structure })}
@@ -199,8 +201,8 @@ function RiffParams() {
     <>
       <InstrumentField part="riff" />
       <SelectField label={t('settings.style')} value={p.style} options={enumOptions(t, RIFF_STYLES, 'riffStyles')} onChange={(style) => patch({ style })} />
-      <Slider label={t('settings.palmMute')} value={p.palmMute} min={0} max={1} step={0.01} format={percent} onChange={(palmMute) => patch({ palmMute })} />
-      <Slider label={t('settings.chromaticism')} value={p.chromaticism} min={0} max={1} step={0.01} format={percent} onChange={(chromaticism) => patch({ chromaticism })} />
+      <Slider label={t('settings.palmMute')} info={t('tips.palmMute')} value={p.palmMute} min={0} max={1} step={0.01} format={percent} onChange={(palmMute) => patch({ palmMute })} />
+      <Slider label={t('settings.chromaticism')} info={t('tips.chromaticism')} value={p.chromaticism} min={0} max={1} step={0.01} format={percent} onChange={(chromaticism) => patch({ chromaticism })} />
       <OctaveField value={p.octave} min={1} max={3} onChange={(octave) => patch({ octave })} />
     </>
   )

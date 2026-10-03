@@ -10,11 +10,11 @@ import {
   baseFileName,
   projectFileName,
   projectToMidi,
-  projectToZip,
   trackFileName,
   trackToMidi,
   zipFileName,
 } from './export'
+import { projectToZip } from './zip'
 
 function project(patch: Partial<Project['settings']['global']> = {}): Project {
   const s = createDefaultSettings(123456)

@@ -1,4 +1,6 @@
 import { Check } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { InfoTip } from './InfoTip'
 import type { ReactNode } from 'react'
 import { cx } from './cx'
 import styles from './Toggle.module.css'
@@ -37,12 +39,15 @@ export interface CheckboxProps {
   checked: boolean
   onChange: (checked: boolean) => void
   label: ReactNode
+  /** Explanation shown in an (i) tooltip after the label. */
+  info?: string
   disabled?: boolean
   className?: string
 }
 
-export function Checkbox({ checked, onChange, label, disabled, className }: CheckboxProps) {
-  return (
+export function Checkbox({ checked, onChange, label, info, disabled, className }: CheckboxProps) {
+  const { t } = useTranslation()
+  const box = (
     <label className={cx(styles.checkbox, className)}>
       <span className={styles.box}>
         <input
@@ -57,5 +62,13 @@ export function Checkbox({ checked, onChange, label, disabled, className }: Chec
       </span>
       {label}
     </label>
+  )
+  if (!info) return box
+  // The tip sits outside the <label> so clicking it doesn't toggle the checkbox.
+  return (
+    <span className={styles.checkboxRow}>
+      {box}
+      <InfoTip content={info} label={t('common.moreInfo')} />
+    </span>
   )
 }

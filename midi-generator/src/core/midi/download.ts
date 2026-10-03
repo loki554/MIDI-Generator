@@ -9,7 +9,6 @@ import {
   type ExportOptions,
   projectFileName,
   projectToMidi,
-  projectToZip,
   trackFileName,
   trackToMidi,
   zipFileName,
@@ -67,6 +66,7 @@ export function downloadTrack(project: Project, track: Track, opts?: Omit<Export
   downloadBytes(trackToMidi(project, track, opts), trackFileName(project, track), MIDI_MIME)
 }
 
-export function downloadZip(project: Project, opts?: Omit<ExportOptions, 'tracks'>): void {
+export async function downloadZip(project: Project, opts?: Omit<ExportOptions, 'tracks'>): Promise<void> {
+  const { projectToZip } = await import('./zip')
   downloadBytes(projectToZip(project, opts), zipFileName(project), ZIP_MIME)
 }

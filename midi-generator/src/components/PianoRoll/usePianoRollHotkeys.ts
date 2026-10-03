@@ -34,7 +34,7 @@ export function usePianoRollHotkeys(args: Args): void {
       if (isTypingTarget(e.target)) return
       // Arrow keys belong to focused controls (radio groups, sliders) unless focus is on the page or the editor.
       const target = e.target as HTMLElement | null
-      const onPage = !target || target === document.body || target.tagName === 'CANVAS'
+      const onPage = !target || target === document.body || target.tagName === 'CANVAS' || target.closest('[data-piano-roll]') !== null
       if (e.key.startsWith('Arrow') && !onPage) return
       const { project, track, rows, total } = latest.current
       const ui = useUiStore.getState()

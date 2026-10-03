@@ -21,14 +21,16 @@
   /* Text */
   --text: #e7e9ef;
   --text-muted: #9ba3b4;
-  --text-faint: #687083;
+  --text-faint: #8a93a6;
 
   /* Accent & status */
   --accent: #7c5cff;
-  --accent-hover: #8e72ff;
-  --accent-active: #6b4bf0;
   --accent-soft: rgba(124, 92, 255, 0.16);
   --accent-contrast: #ffffff;
+  /* Behind white text (≥ 4.5:1) and as text on surfaces (≥ 4.5:1). */
+  --accent-fill: #6f4ef8;
+  --accent-fill-hover: #6343ec;
+  --accent-text: #a28cff;
   --danger: #ff5c6c;
   --danger-soft: rgba(255, 92, 108, 0.14);
   --success: #3ecf8e;
@@ -65,13 +67,14 @@
 
   --text: #171a21;
   --text-muted: #59616f;
-  --text-faint: #8a92a2;
+  --text-faint: #697182;
 
   --accent: #6a48f5;
-  --accent-hover: #7b5cff;
-  --accent-active: #5a39e0;
   --accent-soft: rgba(106, 72, 245, 0.12);
   --accent-contrast: #ffffff;
+  --accent-fill: #6a48f5;
+  --accent-fill-hover: #5a39e0;
+  --accent-text: #5a39e0;
   --danger: #e5384b;
   --danger-soft: rgba(229, 56, 75, 0.1);
   --success: #18a96b;

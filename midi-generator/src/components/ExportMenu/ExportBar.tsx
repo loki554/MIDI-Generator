@@ -14,7 +14,7 @@ export function ExportBar() {
   return (
     <div className={styles.bar} role="group" aria-label={t('export.title')}>
       <span className={styles.label}>{t('export.title')}</span>
-      <Button variant="secondary" icon={<FileArchive />} disabled={disabled} title={hint} onClick={() => project && downloadZip(project)}>
+      <Button variant="secondary" icon={<FileArchive />} disabled={disabled} title={hint} onClick={() => project && void downloadZip(project)}>
         {t('export.zip')}
       </Button>
       <Button variant="primary" icon={<Download />} disabled={disabled} title={hint} onClick={() => project && downloadProject(project)}>

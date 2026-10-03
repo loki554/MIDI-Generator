@@ -249,3 +249,10 @@
   height: calc(var(--control-h-sm) - 6px);
   font-size: var(--text-sm);
 }
+
+.labelRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 0;
+}
