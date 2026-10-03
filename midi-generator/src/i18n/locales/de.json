@@ -91,7 +91,10 @@
     "stop": "Stopp",
     "loop": "Schleife",
     "position": "Position",
-    "bpm": "BPM"
+    "bpm": "BPM",
+    "title": "Transport",
+    "metronome": "Metronom",
+    "playHint": "Leertaste"
   },
   "tracks": {
     "title": "Spuren",

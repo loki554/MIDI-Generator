@@ -93,7 +93,10 @@
     "stop": "Стоп",
     "loop": "Повтор",
     "position": "Позиция",
-    "bpm": "BPM"
+    "bpm": "BPM",
+    "title": "Транспорт",
+    "metronome": "Метроном",
+    "playHint": "Пробел"
   },
   "tracks": {
     "title": "Треки",

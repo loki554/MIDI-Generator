@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { togglePlay } from '../audio/transport'
 import { generate } from '../store/actions'
 
 /** True when a keystroke belongs to a text field or other control and must not trigger shortcuts. */
@@ -21,6 +22,13 @@ export function useGlobalHotkeys(): void {
       if (mod && e.key === 'Enter') {
         e.preventDefault()
         generate()
+        return
+      }
+      if (isTypingTarget(e.target) || e.repeat) return
+      // Space toggles playback; on a focused button it would also "click" it, so take it over.
+      if (e.key === ' ' && !mod && !e.altKey) {
+        e.preventDefault()
+        togglePlay()
       }
     }
     window.addEventListener('keydown', onKeyDown)

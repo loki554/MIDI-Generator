@@ -91,7 +91,10 @@
     "stop": "Stop",
     "loop": "Loop",
     "position": "Position",
-    "bpm": "BPM"
+    "bpm": "BPM",
+    "title": "Transport",
+    "metronome": "Metronome",
+    "playHint": "Space"
   },
   "tracks": {
     "title": "Tracks",
