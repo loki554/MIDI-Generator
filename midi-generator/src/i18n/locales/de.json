@@ -90,5 +90,25 @@
     "arp": "Arpeggio",
     "pad": "Pad",
     "riff": "Riff"
+  },
+  "gm": {
+    "families": {
+      "piano": "Klavier",
+      "chromaticPercussion": "Chromatische Perkussion",
+      "organ": "Orgel",
+      "guitar": "Gitarre",
+      "bass": "Bass",
+      "strings": "Streicher",
+      "ensemble": "Ensemble",
+      "brass": "Blechbläser",
+      "reed": "Rohrblattinstrumente",
+      "pipe": "Flöten",
+      "synthLead": "Synth-Lead",
+      "synthPad": "Synth-Pad",
+      "synthEffects": "Synth-Effekte",
+      "ethnic": "Ethnisch",
+      "percussive": "Perkussiv",
+      "soundEffects": "Soundeffekte"
+    }
   }
 }

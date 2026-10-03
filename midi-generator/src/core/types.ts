@@ -172,7 +172,10 @@ export interface GlobalSettings {
   seed: number
   /** When locked, Generate keeps the seed instead of rolling a new one. */
   seedLocked: boolean
-  /** Progression preset id or 'auto' (Markov chain weighted by genre and mood). */
+  /**
+   * Progression preset id, 'markov' (always generate with the Markov chain) or
+   * 'auto' (genre and mood decide between presets and the Markov chain).
+   */
   progression: string
   /** Chord changes per bar: 0.5 = one chord every two bars. */
   chordsPerBar: Auto<0.5 | 1 | 2>
