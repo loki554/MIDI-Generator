@@ -1,0 +1,251 @@
+/* Shared styles for form controls: Field, Select, NumberField, Segmented. */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.fieldHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.fieldValue {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.hint {
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+}
+
+/* Base input surface */
+.input {
+  width: 100%;
+  height: var(--control-h);
+  padding: 0 var(--space-3);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+
+.input:hover:not(:disabled) {
+  border-color: var(--border-strong);
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sm {
+  height: var(--control-h-sm);
+  padding: 0 var(--space-2);
+  font-size: var(--text-sm);
+  border-radius: var(--radius-sm);
+}
+
+/* Select */
+.selectWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.select {
+  appearance: none;
+  padding-right: 28px;
+  cursor: pointer;
+  text-overflow: ellipsis;
+}
+
+.selectWithIcon {
+  padding-left: 30px;
+}
+
+.selectWithIcon.sm {
+  padding-left: 26px;
+}
+
+.selectIcon,
+.selectChevron {
+  position: absolute;
+  display: flex;
+  pointer-events: none;
+  color: var(--text-muted);
+}
+
+.selectIcon {
+  left: 9px;
+}
+
+.selectChevron {
+  right: 8px;
+}
+
+.selectIcon svg,
+.selectChevron svg {
+  width: 14px;
+  height: 14px;
+}
+
+.select option,
+.select optgroup {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* Number field */
+.number {
+  display: flex;
+  align-items: stretch;
+  height: var(--control-h);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--duration) var(--ease);
+}
+
+.number:hover {
+  border-color: var(--border-strong);
+}
+
+.number:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.number.sm {
+  height: var(--control-h-sm);
+  padding: 0;
+  border-radius: var(--radius-sm);
+}
+
+.numberInput {
+  flex: 1;
+  min-width: 0;
+  padding: 0 var(--space-2);
+  background: transparent;
+  border: 0;
+  outline: none;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.numberSuffix {
+  align-self: center;
+  padding-right: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--text-muted);
+}
+
+.stepper:hover:not(:disabled) {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.stepper:disabled {
+  opacity: 0.35;
+}
+
+.stepper svg {
+  width: 13px;
+  height: 13px;
+}
+
+.number:has(.numberInput:disabled) {
+  opacity: 0.5;
+}
+
+/* Segmented */
+.segmented {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.segment {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-width: 0;
+  height: calc(var(--control-h) - 6px);
+  padding: 0 var(--space-2);
+  background: transparent;
+  border: 0;
+  border-radius: calc(var(--radius-md) - 2px);
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition:
+    background-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+.segment:hover:not(:disabled) {
+  color: var(--text);
+}
+
+.segment[aria-checked='true'] {
+  background: var(--surface-hover);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+.segment:disabled {
+  opacity: 0.45;
+}
+
+.segment svg {
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+
+.segmented.sm .segment {
+  height: calc(var(--control-h-sm) - 6px);
+  font-size: var(--text-sm);
+}

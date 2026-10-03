@@ -1,0 +1,94 @@
+{
+  "common": {
+    "appName": "MIDI Generator",
+    "tagline": "Алгоритмические MIDI-паттерны",
+    "close": "Закрыть",
+    "comingSoon": "Скоро"
+  },
+  "header": {
+    "language": "Язык",
+    "soundSource": "Звук превью",
+    "themeToLight": "Светлая тема",
+    "themeToDark": "Тёмная тема",
+    "credits": "Авторы",
+    "creditsTitle": "О проекте",
+    "creditsAlgorithms": "Все паттерны создаются детерминированными музыкальными алгоритмами — без ИИ. Одинаковые настройки и seed всегда дают одинаковый результат.",
+    "creditsSamples": "Атрибуция и лицензии сэмпл-паков появятся здесь после их подключения.",
+    "creditsPrivacy": "Всё работает в браузере. Без регистрации и загрузки данных на сервер."
+  },
+  "sound": {
+    "synth": "Встроенный синт",
+    "gmClassic": "GM Classic",
+    "gmRich": "GM Rich",
+    "electronic": "Electronic"
+  },
+  "settings": {
+    "title": "Настройки",
+    "mode": "Режим",
+    "modeSingle": "Одна партия",
+    "modeMulti": "Мультитрек",
+    "global": "Общие",
+    "parts": "Партии",
+    "placeholder": "Здесь появятся настройки генерации.",
+    "generate": "Сгенерировать",
+    "generateHint": "Ctrl + Enter"
+  },
+  "transport": {
+    "play": "Воспроизвести",
+    "stop": "Стоп",
+    "loop": "Повтор",
+    "position": "Позиция",
+    "bpm": "BPM"
+  },
+  "tracks": {
+    "title": "Треки",
+    "empty": "Треков пока нет. Нажмите «Сгенерировать», чтобы создать паттерн."
+  },
+  "pianoRoll": {
+    "title": "Piano roll",
+    "empty": "Сгенерируйте паттерн, чтобы редактировать его здесь.",
+    "emptyHint": "Рисуйте, двигайте и растягивайте ноты как в FL Studio."
+  },
+  "export": {
+    "title": "Экспорт",
+    "project": "Скачать .mid",
+    "zip": "Треки в ZIP"
+  },
+  "genres": {
+    "pop": "Поп",
+    "hipHop": "Хип-хоп",
+    "lofi": "Lo-Fi",
+    "house": "Хаус",
+    "techno": "Техно",
+    "dnb": "Драм-н-бейс",
+    "rock": "Рок",
+    "metal": "Метал",
+    "deathMetal": "Дэт-метал",
+    "stonerRock": "Стоунер-рок",
+    "doomMetal": "Дум-метал",
+    "thrashMetal": "Трэш-метал",
+    "jazz": "Джаз",
+    "funk": "Фанк",
+    "ambient": "Эмбиент"
+  },
+  "moods": {
+    "happy": "Радостное",
+    "sad": "Грустное",
+    "dark": "Мрачное",
+    "epic": "Эпичное",
+    "chill": "Расслабленное",
+    "dreamy": "Мечтательное",
+    "tense": "Напряжённое",
+    "romantic": "Романтичное",
+    "aggressive": "Агрессивное"
+  },
+  "parts": {
+    "drums": "Ударные",
+    "bass": "Бас",
+    "chords": "Аккорды",
+    "melody": "Мелодия",
+    "arp": "Арпеджио",
+    "pad": "Пэд",
+    "riff": "Рифф"
+  }
+}

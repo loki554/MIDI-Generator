@@ -1,0 +1,126 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: var(--control-h);
+  padding: 0 var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  white-space: nowrap;
+  user-select: none;
+  transition:
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
+}
+
+.button:disabled {
+  opacity: 0.45;
+}
+
+.button svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+/* Sizes */
+.sm {
+  height: var(--control-h-sm);
+  padding: 0 var(--space-2);
+  font-size: var(--text-sm);
+  border-radius: var(--radius-sm);
+}
+
+.sm svg {
+  width: 14px;
+  height: 14px;
+}
+
+.lg {
+  height: var(--control-h-lg);
+  padding: 0 var(--space-5);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+}
+
+.lg svg {
+  width: 18px;
+  height: 18px;
+}
+
+.block {
+  width: 100%;
+}
+
+/* Variants */
+.primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: var(--shadow-sm);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.primary:active:not(:disabled) {
+  background: var(--accent-active);
+}
+
+.secondary {
+  background: var(--surface-3);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.danger:hover:not(:disabled) {
+  background: var(--danger);
+  color: var(--accent-contrast);
+}
+
+/* Toggled state (e.g. loop on, mute on) */
+.pressed,
+.pressed:hover:not(:disabled) {
+  background: var(--accent-soft);
+  border-color: transparent;
+  color: var(--accent);
+}
+
+/* Icon-only */
+.icon {
+  width: var(--control-h);
+  padding: 0;
+}
+
+.icon.sm {
+  width: var(--control-h-sm);
+}
+
+.icon.lg {
+  width: var(--control-h-lg);
+}

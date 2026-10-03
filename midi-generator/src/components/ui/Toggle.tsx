@@ -1,0 +1,61 @@
+import { Check } from 'lucide-react'
+import type { ReactNode } from 'react'
+import { cx } from './cx'
+import styles from './Toggle.module.css'
+
+export interface ToggleProps {
+  checked: boolean
+  onChange: (checked: boolean) => void
+  /** Visible label. If omitted, pass `aria-label`. */
+  label?: ReactNode
+  'aria-label'?: string
+  disabled?: boolean
+  className?: string
+}
+
+/** On/off switch (role="switch"). */
+export function Toggle({ checked, onChange, label, disabled, className, ...aria }: ToggleProps) {
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={checked}
+      aria-label={aria['aria-label']}
+      disabled={disabled}
+      className={cx(styles.toggle, className)}
+      onClick={() => onChange(!checked)}
+    >
+      <span className={styles.track}>
+        <span className={styles.thumb} />
+      </span>
+      {label}
+    </button>
+  )
+}
+
+export interface CheckboxProps {
+  checked: boolean
+  onChange: (checked: boolean) => void
+  label: ReactNode
+  disabled?: boolean
+  className?: string
+}
+
+export function Checkbox({ checked, onChange, label, disabled, className }: CheckboxProps) {
+  return (
+    <label className={cx(styles.checkbox, className)}>
+      <span className={styles.box}>
+        <input
+          type="checkbox"
+          checked={checked}
+          disabled={disabled}
+          onChange={(e) => onChange(e.target.checked)}
+        />
+        <span className={styles.check}>
+          <Check />
+        </span>
+      </span>
+      {label}
+    </label>
+  )
+}

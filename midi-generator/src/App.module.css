@@ -1,0 +1,44 @@
+.app {
+  display: grid;
+  grid-template-rows: var(--header-h) minmax(0, 1fr);
+  height: 100%;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  min-height: 0;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto minmax(120px, 0.32fr) minmax(320px, 1fr) auto;
+  gap: var(--space-3);
+  min-width: 0;
+  min-height: 0;
+  padding: var(--space-3);
+  overflow: auto;
+}
+
+@media (max-width: 1200px) {
+  .body {
+    --sidebar-w: 280px;
+  }
+}
+
+/* Tablet: stack the settings above the workspace and let the page scroll. */
+@media (max-width: 900px) {
+  .app {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .main {
+    grid-template-rows: auto minmax(140px, auto) minmax(420px, 60vh) auto;
+    overflow: visible;
+  }
+}

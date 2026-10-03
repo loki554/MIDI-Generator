@@ -1,0 +1,76 @@
+.range {
+  --fill: 50%;
+  --track-h: 4px;
+  --thumb: 14px;
+
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+}
+
+.range:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.range:focus-visible {
+  outline: none;
+}
+
+.range::-webkit-slider-runnable-track {
+  height: var(--track-h);
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    to right,
+    var(--accent) 0 var(--fill),
+    var(--surface-3) var(--fill) 100%
+  );
+}
+
+.range::-moz-range-track {
+  height: var(--track-h);
+  border-radius: var(--radius-full);
+  background: var(--surface-3);
+}
+
+.range::-moz-range-progress {
+  height: var(--track-h);
+  border-radius: var(--radius-full);
+  background: var(--accent);
+}
+
+.range::-webkit-slider-thumb {
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track-h) - var(--thumb)) / 2);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  appearance: none;
+  transition: transform var(--duration) var(--ease);
+}
+
+.range::-moz-range-thumb {
+  width: var(--thumb);
+  height: var(--thumb);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.range:hover:not(:disabled)::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+.range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+.range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}

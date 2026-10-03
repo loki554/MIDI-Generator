@@ -1,0 +1,94 @@
+{
+  "common": {
+    "appName": "MIDI Generator",
+    "tagline": "Algorithmische MIDI-Patterns",
+    "close": "Schließen",
+    "comingSoon": "Demnächst"
+  },
+  "header": {
+    "language": "Sprache",
+    "soundSource": "Vorschau-Sound",
+    "themeToLight": "Zum hellen Design wechseln",
+    "themeToDark": "Zum dunklen Design wechseln",
+    "credits": "Credits",
+    "creditsTitle": "Info & Credits",
+    "creditsAlgorithms": "Alle Patterns werden von deterministischen Musikalgorithmen erzeugt – ohne KI. Gleiche Einstellungen und gleicher Seed ergeben immer dasselbe Ergebnis.",
+    "creditsSamples": "Quellenangaben und Lizenzen der Sample-Packs erscheinen hier, sobald die Packs eingebunden sind.",
+    "creditsPrivacy": "Alles läuft im Browser. Kein Konto, keine Uploads."
+  },
+  "sound": {
+    "synth": "Eingebauter Synth",
+    "gmClassic": "GM Classic",
+    "gmRich": "GM Rich",
+    "electronic": "Electronic"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "mode": "Modus",
+    "modeSingle": "Einzelne Spur",
+    "modeMulti": "Mehrspurig",
+    "global": "Allgemein",
+    "parts": "Spuren",
+    "placeholder": "Hier erscheinen die Generierungseinstellungen.",
+    "generate": "Generieren",
+    "generateHint": "Strg + Enter"
+  },
+  "transport": {
+    "play": "Abspielen",
+    "stop": "Stopp",
+    "loop": "Schleife",
+    "position": "Position",
+    "bpm": "BPM"
+  },
+  "tracks": {
+    "title": "Spuren",
+    "empty": "Noch keine Spuren. Klicke auf „Generieren“, um ein Pattern zu erstellen."
+  },
+  "pianoRoll": {
+    "title": "Piano Roll",
+    "empty": "Generiere ein Pattern, um es hier zu bearbeiten.",
+    "emptyHint": "Noten zeichnen, verschieben und verlängern – wie in FL Studio."
+  },
+  "export": {
+    "title": "Export",
+    "project": ".mid herunterladen",
+    "zip": "Spuren als ZIP"
+  },
+  "genres": {
+    "pop": "Pop",
+    "hipHop": "Hip-Hop",
+    "lofi": "Lo-Fi",
+    "house": "House",
+    "techno": "Techno",
+    "dnb": "Drum & Bass",
+    "rock": "Rock",
+    "metal": "Metal",
+    "deathMetal": "Death Metal",
+    "stonerRock": "Stoner Rock",
+    "doomMetal": "Doom Metal",
+    "thrashMetal": "Thrash Metal",
+    "jazz": "Jazz",
+    "funk": "Funk",
+    "ambient": "Ambient"
+  },
+  "moods": {
+    "happy": "Fröhlich",
+    "sad": "Traurig",
+    "dark": "Düster",
+    "epic": "Episch",
+    "chill": "Entspannt",
+    "dreamy": "Verträumt",
+    "tense": "Angespannt",
+    "romantic": "Romantisch",
+    "aggressive": "Aggressiv"
+  },
+  "parts": {
+    "drums": "Schlagzeug",
+    "bass": "Bass",
+    "chords": "Akkorde",
+    "melody": "Melodie",
+    "arp": "Arpeggio",
+    "pad": "Pad",
+    "riff": "Riff"
+  }
+}
