@@ -8,6 +8,9 @@
  */
 import { ticksPerBar, ticksPerBeat, totalTicks } from '../core/time'
 import { PPQ, type Project, type Tick, type Track } from '../core/types'
+import type { SoundSource } from '../store/prefsStore'
+import { isPack, type PackId } from './samples/packs'
+import type { PrepareProgress, SampleBank } from './samples/loader'
 import { playDrum } from './synth/drums'
 import type { Voice } from './synth/voice'
 import { playSynthNote, voiceKindFor } from './synth/voices'
@@ -23,6 +26,7 @@ export interface EngineState {
   loop: boolean
   loopRegion: LoopRange | null
   metronome: boolean
+  soundSource: SoundSource
 }
 
 const sameLoop = (a: LoopRange | null, b: LoopRange | null) =>
@@ -33,6 +37,8 @@ export class AudioEngine {
   private master: GainNode | null = null
   private buses = new Map<string, GainNode>()
   private voices = new Set<Voice>()
+  /** Sample instruments; created lazily when a pack is first used. */
+  private samples: SampleBank | null = null
   private timer: number | null = null
 
   private playing = false
@@ -47,10 +53,12 @@ export class AudioEngine {
 
   private readonly getState: () => EngineState
   private readonly onEnded: () => void
+  private readonly onContextCreated: () => void
 
-  constructor(getState: () => EngineState, onEnded: () => void) {
+  constructor(getState: () => EngineState, onEnded: () => void, onContextCreated: () => void = () => {}) {
     this.getState = getState
     this.onEnded = onEnded
+    this.onContextCreated = onContextCreated
   }
 
   /** Creates (on first use) and resumes the AudioContext. Call from a user gesture. */
@@ -69,6 +77,7 @@ export class AudioEngine {
       master.connect(limiter).connect(ctx.destination)
       this.ctx = ctx
       this.master = master
+      this.onContextCreated()
     }
     if (this.ctx.state !== 'running') await this.ctx.resume()
     return this.ctx
@@ -121,6 +130,20 @@ export class AudioEngine {
     this.updateBus(track, true)
     const project = this.getState().project
     this.addVoice(this.voiceFor(ctx, this.busFor(track.id), track, pitch, velocity, ctx.currentTime + 0.005, seconds, project))
+  }
+
+  /** Loads the pack's instruments for the project (no-op until the AudioContext exists). */
+  async prepareSamples(pack: PackId, project: Project, onProgress: (p: PrepareProgress) => void): Promise<PrepareProgress | null> {
+    if (!this.ctx) return null
+    if (!this.samples) {
+      const { SampleBank } = await import('./samples/loader')
+      this.samples ??= new SampleBank(this.ctx)
+    }
+    return this.samples.prepare(pack, project, (id) => this.busFor(id), onProgress)
+  }
+
+  clearSamples(): void {
+    this.samples?.clear()
   }
 
   /* ---------- timing ---------- */
@@ -243,6 +266,12 @@ export class AudioEngine {
     seconds: number,
     project: Project | null,
   ): Voice {
+    const source = this.getState().soundSource
+    if (isPack(source) && this.samples && project) {
+      // Sampled voice when the instrument is ready; otherwise fall through to the synth.
+      const sampled = this.samples.play(source, project.id, track, pitch, velocity, time, seconds)
+      if (sampled) return sampled
+    }
     if (track.partType === 'drums') return playDrum(ctx, out, pitch, velocity, time)
     const kind = voiceKindFor(track.partType, track.program, project?.settings.global.genre)
     return playSynthNote(ctx, out, kind, pitch, velocity, time, Math.max(0.03, seconds))

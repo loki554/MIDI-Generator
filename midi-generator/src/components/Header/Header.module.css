@@ -79,3 +79,58 @@
     width: 150px;
   }
 }
+
+/* Sample loading status */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.status svg {
+  width: 14px;
+  height: 14px;
+}
+
+.statusError {
+  color: var(--warning);
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.packList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.packList dt {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.packList dd {
+  margin: 0;
+}
+
+.packList a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.packList a:hover {
+  text-decoration: underline;
+}

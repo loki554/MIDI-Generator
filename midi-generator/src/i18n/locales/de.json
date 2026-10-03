@@ -16,14 +16,18 @@
     "credits": "Credits",
     "creditsTitle": "Info & Credits",
     "creditsAlgorithms": "Alle Patterns werden von deterministischen Musikalgorithmen erzeugt – ohne KI. Gleiche Einstellungen und gleicher Seed ergeben immer dasselbe Ergebnis.",
-    "creditsSamples": "Quellenangaben und Lizenzen der Sample-Packs erscheinen hier, sobald die Packs eingebunden sind.",
-    "creditsPrivacy": "Alles läuft im Browser. Kein Konto, keine Uploads."
+    "creditsSamples": "Sample-Packs werden nur bei Auswahl von öffentlichen CDNs geladen:",
+    "creditsPrivacy": "Alles läuft im Browser. Kein Konto, keine Uploads.",
+    "creditsSynth": "Eingebauter Synth: wird im Browser erzeugt, ohne Downloads."
   },
   "sound": {
     "synth": "Eingebauter Synth",
     "gmClassic": "GM Classic",
     "gmRich": "GM Rich",
-    "electronic": "Electronic"
+    "electronic": "Electronic",
+    "loading": "Samples werden geladen {{loaded}}/{{total}}",
+    "error": "Einige Samples konnten nicht geladen werden – diese Spuren spielt der eingebaute Synth.",
+    "ready": "Samples geladen"
   },
   "settings": {
     "title": "Einstellungen",
