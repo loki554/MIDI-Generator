@@ -1,35 +1,43 @@
-# React + TypeScript + Vite
+# MIDI Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Web-based MIDI generator built on pure algorithms (no AI). Pick a genre, mood, key, tempo and
+parts — drums, chords, bass, melody, arpeggio, pad, riff — then preview, edit in a piano roll and
+export `.mid` files. Everything runs in the browser: no backend, no sign-up.
 
-Currently, two official plugins are available:
+The development roadmap lives in [`../docs/PLAN.md`](../docs/PLAN.md).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features (planned)
 
-## React Compiler
+- Single-part or multitrack generation from a shared harmony, reproducible by seed
+- 15 genres × 9 moods, 1–32 bars, 4/4 · 3/4 · 6/8, swing and humanize
+- Live preview with a built-in synth or one of three lazy-loaded sample packs
+- FL Studio-style piano roll with undo/redo and velocity lane
+- Export as a single multitrack `.mid`, per-track files or a ZIP
+- UI in Russian, English and German
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Stack
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+React 19 · TypeScript · Vite · zustand/zundo · i18next · @tonejs/midi · smplr · fflate · Vitest · oxlint
 
-## Expanding the Oxlint configuration
+## Scripts
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install          # install dependencies
+npm run dev          # start dev server
+npm run build        # type-check and build for production
+npm run preview      # preview the production build
+npm run lint         # run oxlint
+npm run test         # run unit tests once
+npm run test:watch   # run unit tests in watch mode
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Project structure
+
+```
+src/
+  core/        pure logic: data model, music theory, generators, MIDI export
+  audio/       Web Audio engine, synth voices, sample pack loader
+  store/       zustand stores
+  i18n/        i18next setup and locales/{ru,en,de}.json
+  components/  React UI
+```

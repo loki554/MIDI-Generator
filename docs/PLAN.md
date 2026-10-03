@@ -42,21 +42,21 @@
 
 ## Фаза 1. Подготовка проекта
 
-- [ ] **1.1. Очистка scaffold**
-  - [ ] 1.1.1. Удалить `src/assets/hero.png`, `react.svg`, `vite.svg`, `public/icons.svg`
-  - [ ] 1.1.2. Очистить `App.tsx`, `App.css`, `index.css` от демо-кода
-  - [ ] 1.1.3. Обновить `index.html`: `<title>`, `lang`, favicon, meta description
-  - [ ] 1.1.4. Переписать `README.md` под проект (описание, запуск, скрипты)
-- [ ] **1.2. Зависимости**
-  - [ ] 1.2.1. Установить runtime-пакеты: `@tonejs/midi`, `i18next`, `react-i18next`, `i18next-browser-languagedetector`, `zustand`, `zundo`, `smplr`, `fflate`
-  - [ ] 1.2.2. Установить dev-пакеты: `vitest`
-  - [ ] 1.2.3. Добавить скрипт `"test": "vitest"` в `package.json`
-- [ ] **1.3. Структура каталогов `src/`**
-  - [ ] 1.3.1. `core/` — чистая логика без React (теория, генераторы, экспорт)
-  - [ ] 1.3.2. `audio/` — движок, синтезатор, загрузчик сэмплов
-  - [ ] 1.3.3. `store/` — zustand-сторы
-  - [ ] 1.3.4. `i18n/` — инициализация и `locales/{ru,en,de}.json`
-  - [ ] 1.3.5. `components/` — UI
+- [x] **1.1. Очистка scaffold**
+  - [x] 1.1.1. Удалить `src/assets/hero.png`, `react.svg`, `vite.svg`, `public/icons.svg`
+  - [x] 1.1.2. Очистить `App.tsx`, `App.css`, `index.css` от демо-кода
+  - [x] 1.1.3. Обновить `index.html`: `<title>`, `lang`, favicon, meta description
+  - [x] 1.1.4. Переписать `README.md` под проект (описание, запуск, скрипты)
+- [x] **1.2. Зависимости**
+  - [x] 1.2.1. Установить runtime-пакеты: `@tonejs/midi`, `i18next`, `react-i18next`, `i18next-browser-languagedetector`, `zustand`, `zundo`, `smplr`, `fflate`
+  - [x] 1.2.2. Установить dev-пакеты: `vitest`
+  - [x] 1.2.3. Добавить скрипт `"test": "vitest"` в `package.json`
+- [x] **1.3. Структура каталогов `src/`**
+  - [x] 1.3.1. `core/` — чистая логика без React (теория, генераторы, экспорт)
+  - [x] 1.3.2. `audio/` — движок, синтезатор, загрузчик сэмплов
+  - [x] 1.3.3. `store/` — zustand-сторы
+  - [x] 1.3.4. `i18n/` — инициализация и `locales/{ru,en,de}.json`
+  - [x] 1.3.5. `components/` — UI
 
 **Готово, когда:** `npm run dev`, `npm run build`, `npm run lint`, `npm run test` проходят на пустом каркасе.
 
