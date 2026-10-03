@@ -90,21 +90,21 @@
 
 ## Фаза 3. Ядро: модель данных и теория музыки (`core/`)
 
-- [ ] **3.1. Типы (`core/types.ts`)**
-  - [ ] 3.1.1. `Note { id, pitch, start, duration, velocity }` — время в тиках (PPQ 480)
-  - [ ] 3.1.2. `Track { id, partType, name, program, channel, color, muted, solo, volume, notes, seed }`
-  - [ ] 3.1.3. `Project { bpm, timeSignature, bars, key, scale, tracks, settings }` — полностью JSON-сериализуем (задел под историю)
-  - [ ] 3.1.4. `GenSettings` — глобальные + по партиям
-- [ ] **3.2. Seeded PRNG (`core/random.ts`)**
-  - [ ] 3.2.1. `mulberry32(seed)`
-  - [ ] 3.2.2. Хелперы: `int`, `float`, `chance`, `pick`, `weightedPick`, `shuffle`, `gaussian`
-  - [ ] 3.2.3. Производные под-seed для каждой партии (`deriveSeed(seed, partType, variant)`)
-- [ ] **3.3. Теория (`core/theory/`)**
-  - [ ] 3.3.1. `notes.ts`: имена нот, MIDI ↔ имя, транспонирование
-  - [ ] 3.3.2. `scales.ts`: мажор, минор, дорийский, фригийский, лидийский, миксолидийский, локрийский, гармонический и мелодический минор, пентатоники, блюзовый, фригийский доминантовый
-  - [ ] 3.3.3. `chords.ts`: построение аккордов на ступенях (триады, 7, 9, 11, 13, sus2/4, add9, power chord), обращения, voicing
-  - [ ] 3.3.4. `progressions.ts`: пресеты прогрессий + марковская матрица переходов по ступеням
-  - [ ] 3.3.5. Voice leading: выбор обращения с минимальным суммарным движением голосов
+- [x] **3.1. Типы (`core/types.ts`)**
+  - [x] 3.1.1. `Note { id, pitch, start, duration, velocity }` — время в тиках (PPQ 480)
+  - [x] 3.1.2. `Track { id, partType, name, program, channel, color, muted, solo, volume, notes, seed }`
+  - [x] 3.1.3. `Project { bpm, timeSignature, bars, key, scale, tracks, settings }` — полностью JSON-сериализуем (задел под историю)
+  - [x] 3.1.4. `GenSettings` — глобальные + по партиям
+- [x] **3.2. Seeded PRNG (`core/random.ts`)**
+  - [x] 3.2.1. `mulberry32(seed)`
+  - [x] 3.2.2. Хелперы: `int`, `float`, `chance`, `pick`, `weightedPick`, `shuffle`, `gaussian`
+  - [x] 3.2.3. Производные под-seed для каждой партии (`deriveSeed(seed, partType, variant)`)
+- [x] **3.3. Теория (`core/theory/`)**
+  - [x] 3.3.1. `notes.ts`: имена нот, MIDI ↔ имя, транспонирование
+  - [x] 3.3.2. `scales.ts`: мажор, минор, дорийский, фригийский, лидийский, миксолидийский, локрийский, гармонический и мелодический минор, пентатоники, блюзовый, фригийский доминантовый
+  - [x] 3.3.3. `chords.ts`: построение аккордов на ступенях (триады, 7, 9, 11, 13, sus2/4, add9, power chord), обращения, voicing
+  - [x] 3.3.4. `progressions.ts`: пресеты прогрессий + марковская матрица переходов по ступеням
+  - [x] 3.3.5. Voice leading: выбор обращения с минимальным суммарным движением голосов
 
 **Готово, когда:** юнит-тесты на гаммы, аккорды и PRNG (детерминизм) зелёные.
 

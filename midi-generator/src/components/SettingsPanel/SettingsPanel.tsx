@@ -1,12 +1,9 @@
 import { Layers, Music2, Sparkles } from 'lucide-react'
 import { useState, type CSSProperties } from 'react'
 import { useTranslation } from 'react-i18next'
+import { PART_TYPES, type GenerationMode } from '../../core/types'
 import { Button, Section, Segmented } from '../ui'
 import styles from './SettingsPanel.module.css'
-
-// Placeholder lists until the core model (phase 3) defines them.
-const PART_TYPES = ['drums', 'bass', 'chords', 'melody', 'arp', 'pad', 'riff'] as const
-type GenerationMode = 'single' | 'multi'
 
 export function SettingsPanel() {
   const { t } = useTranslation()
