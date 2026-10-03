@@ -3,7 +3,10 @@
     "appName": "MIDI Generator",
     "tagline": "Алгоритмические MIDI-паттерны",
     "close": "Закрыть",
-    "comingSoon": "Скоро"
+    "comingSoon": "Скоро",
+    "auto": "Авто",
+    "on": "Вкл",
+    "off": "Выкл"
   },
   "header": {
     "language": "Язык",
@@ -29,9 +32,61 @@
     "modeMulti": "Мультитрек",
     "global": "Общие",
     "parts": "Партии",
-    "placeholder": "Здесь появятся настройки генерации.",
     "generate": "Сгенерировать",
-    "generateHint": "Ctrl + Enter"
+    "generateHint": "Ctrl + Enter",
+    "part": "Партия",
+    "genre": "Жанр",
+    "mood": "Настроение",
+    "key": "Тональность",
+    "scale": "Лад",
+    "bpm": "Темп",
+    "bpmRange": "Обычно для жанра «{{genre}}»: {{min}}–{{max}}",
+    "bpmSuggest": "Поставить {{bpm}} BPM",
+    "timeSignature": "Размер",
+    "bars": "Длина",
+    "barsValue_one": "{{count}} такт",
+    "barsValue_few": "{{count}} такта",
+    "barsValue_many": "{{count}} тактов",
+    "barsValue_other": "{{count}} такта",
+    "swing": "Свинг",
+    "complexity": "Сложность",
+    "humanize": "Живость",
+    "harmony": "Гармония",
+    "progression": "Прогрессия",
+    "progressionMarkov": "Сгенерировать (цепь Маркова)",
+    "progressionMajor": "Мажорные",
+    "progressionMinor": "Минорные",
+    "chordsPerBar": "Смена аккордов",
+    "chordsPerBarValue": "{{value}} за такт",
+    "seed": "Seed",
+    "seedRandom": "Случайный seed",
+    "seedLock": "Сохранять seed при генерации",
+    "seedUnlock": "Новый seed при каждой генерации",
+    "seedHint": "Те же настройки + тот же seed = тот же паттерн.",
+    "enabled": "Включена",
+    "instrument": "Инструмент",
+    "instrumentAuto": "Авто ({{name}})",
+    "octave": "Октава",
+    "density": "Плотность",
+    "fillEvery": "Брейк каждые",
+    "fillEveryValue": "{{count}} такта",
+    "ghostNotes": "Ghost-ноты",
+    "hihatRolls": "Дроби хай-хэта",
+    "crashOnSection": "Крэш на начале секции",
+    "style": "Стиль",
+    "approachNotes": "Подходы к аккордам",
+    "extension": "Тип аккордов",
+    "rhythm": "Ритм",
+    "voiceLeading": "Голосоведение",
+    "range": "Диапазон",
+    "rangeValue": "{{count}} полутонов",
+    "structure": "Структура фразы",
+    "repetition": "Повтор мотива",
+    "pattern": "Рисунок",
+    "rate": "Скорость",
+    "octaves": "Октав",
+    "palmMute": "Глушение ладонью",
+    "chromaticism": "Хроматизм"
   },
   "transport": {
     "play": "Воспроизвести",
@@ -42,7 +97,17 @@
   },
   "tracks": {
     "title": "Треки",
-    "empty": "Треков пока нет. Нажмите «Сгенерировать», чтобы создать паттерн."
+    "empty": "Треков пока нет. Нажмите «Сгенерировать», чтобы создать паттерн.",
+    "mute": "Заглушить",
+    "solo": "Соло",
+    "volume": "Громкость",
+    "regenerate": "Перегенерировать партию",
+    "download": "Скачать трек",
+    "drag": "Перетащите в DAW",
+    "notes_one": "{{count}} нота",
+    "notes_few": "{{count}} ноты",
+    "notes_many": "{{count}} нот",
+    "notes_other": "{{count}} ноты"
   },
   "pianoRoll": {
     "title": "Piano roll",
@@ -52,7 +117,8 @@
   "export": {
     "title": "Экспорт",
     "project": "Скачать .mid",
-    "zip": "Треки в ZIP"
+    "zip": "Треки в ZIP",
+    "disabled": "Сначала сгенерируйте паттерн"
   },
   "genres": {
     "pop": "Поп",
@@ -110,5 +176,60 @@
       "percussive": "Ударные (мелодические)",
       "soundEffects": "Звуковые эффекты"
     }
+  },
+  "scales": {
+    "major": "Мажор",
+    "minor": "Минор",
+    "dorian": "Дорийский",
+    "phrygian": "Фригийский",
+    "lydian": "Лидийский",
+    "mixolydian": "Миксолидийский",
+    "locrian": "Локрийский",
+    "harmonicMinor": "Гармонический минор",
+    "melodicMinor": "Мелодический минор",
+    "majorPentatonic": "Мажорная пентатоника",
+    "minorPentatonic": "Минорная пентатоника",
+    "blues": "Блюзовый",
+    "phrygianDominant": "Фригийский доминантовый"
+  },
+  "bassStyles": {
+    "root": "Основные тоны",
+    "octave": "Октавы",
+    "walking": "Walking bass",
+    "sub808": "808 саб",
+    "offbeat": "Офбит",
+    "syncopated": "Синкопы",
+    "riff": "Дублирует рифф"
+  },
+  "chordRhythms": {
+    "sustain": "Протяжно",
+    "stabs": "Стабы",
+    "syncopated": "Синкопы",
+    "strum": "Бой"
+  },
+  "extensions": {
+    "triad": "Трезвучия",
+    "seventh": "Септаккорды",
+    "ninth": "Нонаккорды",
+    "eleventh": "Ундецимаккорды",
+    "thirteenth": "Терцдецимаккорды",
+    "sus2": "sus2",
+    "sus4": "sus4",
+    "add9": "add9",
+    "power": "Power chords"
+  },
+  "arpPatterns": {
+    "up": "Вверх",
+    "down": "Вниз",
+    "upDown": "Вверх-вниз",
+    "random": "Случайно",
+    "converge": "Сходящийся"
+  },
+  "riffStyles": {
+    "chug": "Чаг",
+    "gallop": "Галоп",
+    "tremolo": "Тремоло",
+    "groove": "Грув",
+    "halfTime": "Half-time"
   }
 }

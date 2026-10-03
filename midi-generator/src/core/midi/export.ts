@@ -9,7 +9,10 @@ export const ZIP_MIME = 'application/zip'
 export interface ExportOptions {
   /** Tracks to include; defaults to all tracks of the project. */
   tracks?: readonly Track[]
-  /** Display name per track (e.g. localized part name). Defaults to the capitalized part name. */
+  /**
+   * Display name per track; defaults to the capitalized English part name. MIDI text
+   * events are 8-bit, so non-Latin names (e.g. Cyrillic) would arrive garbled in DAWs.
+   */
   trackName?: (track: Track) => string
 }
 

@@ -6,10 +6,12 @@ import { PianoRollPanel } from './components/PianoRoll/PianoRollPanel'
 import { SettingsPanel } from './components/SettingsPanel/SettingsPanel'
 import { TrackList } from './components/TrackList/TrackList'
 import { Transport } from './components/Transport/Transport'
+import { useGlobalHotkeys } from './hooks/useGlobalHotkeys'
 import { usePrefsStore } from './store/prefsStore'
 
 function App() {
   const theme = usePrefsStore((s) => s.theme)
+  useGlobalHotkeys()
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme

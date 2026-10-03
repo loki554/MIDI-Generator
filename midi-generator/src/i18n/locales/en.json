@@ -3,7 +3,10 @@
     "appName": "MIDI Generator",
     "tagline": "Algorithmic MIDI patterns",
     "close": "Close",
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "auto": "Auto",
+    "on": "On",
+    "off": "Off"
   },
   "header": {
     "language": "Language",
@@ -29,9 +32,59 @@
     "modeMulti": "Multitrack",
     "global": "Global",
     "parts": "Parts",
-    "placeholder": "Generation settings will appear here.",
     "generate": "Generate",
-    "generateHint": "Ctrl + Enter"
+    "generateHint": "Ctrl + Enter",
+    "part": "Part",
+    "genre": "Genre",
+    "mood": "Mood",
+    "key": "Key",
+    "scale": "Scale",
+    "bpm": "Tempo",
+    "bpmRange": "Typical for {{genre}}: {{min}}–{{max}}",
+    "bpmSuggest": "Use {{bpm}} BPM",
+    "timeSignature": "Time signature",
+    "bars": "Length",
+    "barsValue_one": "{{count}} bar",
+    "barsValue_other": "{{count}} bars",
+    "swing": "Swing",
+    "complexity": "Complexity",
+    "humanize": "Humanize",
+    "harmony": "Harmony",
+    "progression": "Progression",
+    "progressionMarkov": "Generate (Markov chain)",
+    "progressionMajor": "Major",
+    "progressionMinor": "Minor",
+    "chordsPerBar": "Chord changes",
+    "chordsPerBarValue": "{{value}} per bar",
+    "seed": "Seed",
+    "seedRandom": "Random seed",
+    "seedLock": "Keep this seed when generating",
+    "seedUnlock": "Roll a new seed on every generation",
+    "seedHint": "Same settings + same seed = same pattern.",
+    "enabled": "Enabled",
+    "instrument": "Instrument",
+    "instrumentAuto": "Auto ({{name}})",
+    "octave": "Octave",
+    "density": "Density",
+    "fillEvery": "Fill every",
+    "fillEveryValue": "{{count}} bars",
+    "ghostNotes": "Ghost notes",
+    "hihatRolls": "Hi-hat rolls",
+    "crashOnSection": "Crash on sections",
+    "style": "Style",
+    "approachNotes": "Approach notes",
+    "extension": "Chord type",
+    "rhythm": "Rhythm",
+    "voiceLeading": "Voice leading",
+    "range": "Range",
+    "rangeValue": "{{count}} semitones",
+    "structure": "Phrase structure",
+    "repetition": "Motif repetition",
+    "pattern": "Pattern",
+    "rate": "Rate",
+    "octaves": "Octaves",
+    "palmMute": "Palm mute",
+    "chromaticism": "Chromaticism"
   },
   "transport": {
     "play": "Play",
@@ -42,7 +95,15 @@
   },
   "tracks": {
     "title": "Tracks",
-    "empty": "No tracks yet. Press Generate to create a pattern."
+    "empty": "No tracks yet. Press Generate to create a pattern.",
+    "mute": "Mute",
+    "solo": "Solo",
+    "volume": "Volume",
+    "regenerate": "Regenerate this part",
+    "download": "Download this track",
+    "drag": "Drag into your DAW",
+    "notes_one": "{{count}} note",
+    "notes_other": "{{count}} notes"
   },
   "pianoRoll": {
     "title": "Piano roll",
@@ -52,7 +113,8 @@
   "export": {
     "title": "Export",
     "project": "Download .mid",
-    "zip": "Tracks as ZIP"
+    "zip": "Tracks as ZIP",
+    "disabled": "Generate a pattern first"
   },
   "genres": {
     "pop": "Pop",
@@ -110,5 +172,60 @@
       "percussive": "Percussive",
       "soundEffects": "Sound effects"
     }
+  },
+  "scales": {
+    "major": "Major",
+    "minor": "Minor",
+    "dorian": "Dorian",
+    "phrygian": "Phrygian",
+    "lydian": "Lydian",
+    "mixolydian": "Mixolydian",
+    "locrian": "Locrian",
+    "harmonicMinor": "Harmonic minor",
+    "melodicMinor": "Melodic minor",
+    "majorPentatonic": "Major pentatonic",
+    "minorPentatonic": "Minor pentatonic",
+    "blues": "Blues",
+    "phrygianDominant": "Phrygian dominant"
+  },
+  "bassStyles": {
+    "root": "Root notes",
+    "octave": "Octaves",
+    "walking": "Walking",
+    "sub808": "808 sub",
+    "offbeat": "Off-beat",
+    "syncopated": "Syncopated",
+    "riff": "Doubles the riff"
+  },
+  "chordRhythms": {
+    "sustain": "Sustained",
+    "stabs": "Stabs",
+    "syncopated": "Syncopated",
+    "strum": "Strummed"
+  },
+  "extensions": {
+    "triad": "Triads",
+    "seventh": "Sevenths",
+    "ninth": "Ninths",
+    "eleventh": "Elevenths",
+    "thirteenth": "Thirteenths",
+    "sus2": "sus2",
+    "sus4": "sus4",
+    "add9": "add9",
+    "power": "Power chords"
+  },
+  "arpPatterns": {
+    "up": "Up",
+    "down": "Down",
+    "upDown": "Up & down",
+    "random": "Random",
+    "converge": "Converge"
+  },
+  "riffStyles": {
+    "chug": "Chug",
+    "gallop": "Gallop",
+    "tremolo": "Tremolo",
+    "groove": "Groove",
+    "halfTime": "Half-time"
   }
 }
