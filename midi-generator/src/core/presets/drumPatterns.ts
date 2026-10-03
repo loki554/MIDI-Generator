@@ -53,7 +53,7 @@ export const DRUM_PATTERNS = {
     steps: 16,
     lanes: {
       kick: 'X.....3.X.3...2.',
-      snare: 'g...X..g....X..2',
+      snare: '....X..g....X..2',
       closedHat: 'X.x.x.x.X.x.x.x.',
       openHat: '..............2.',
       tambourine: '....3.......3...',
