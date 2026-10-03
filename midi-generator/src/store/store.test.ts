@@ -27,6 +27,17 @@ describe('projectStore history', () => {
     expect(useProjectStore.getState().project!.tracks[0].notes).toEqual([])
   })
 
+  it('never undoes the first project away', () => {
+    const p = generateProject(createDefaultSettings(1), { createdAt: 0 })
+    useProjectStore.getState().setProject(p)
+    undo()
+    expect(useProjectStore.getState().project).toBe(p)
+    const q = generateProject(createDefaultSettings(2), { createdAt: 0 })
+    useProjectStore.getState().setProject(q)
+    undo()
+    expect(useProjectStore.getState().project).toBe(p) // regenerations stay undoable
+  })
+
   it('keeps mixer changes and tempo out of the history', () => {
     const p = generateProject(createDefaultSettings(1), { createdAt: 0 })
     useProjectStore.getState().setProject(p)

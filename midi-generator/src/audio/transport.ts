@@ -1,6 +1,7 @@
 /** The app's engine instance, bound to the stores, plus transport actions. */
 import { usePlaybackStore } from '../store/playbackStore'
 import { useProjectStore } from '../store/projectStore'
+import { useUiStore } from '../store/uiStore'
 import { AudioEngine } from './engine'
 
 export const engine = new AudioEngine(
@@ -34,6 +35,7 @@ export function seek(tick: number): void {
   if (engine.isPlaying) void engine.play(tick)
 }
 
+// Dev-only handles for debugging and browser-driven checks.
 if (import.meta.env.DEV) {
-  ;(window as unknown as { __engine: AudioEngine }).__engine = engine
+  Object.assign(window, { __engine: engine, __stores: { project: useProjectStore, playback: usePlaybackStore, ui: useUiStore } })
 }

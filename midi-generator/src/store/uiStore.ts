@@ -29,6 +29,8 @@ interface UiState {
   lastNoteLength: number
   lastVelocity: number
   showVelocity: boolean
+  /** Incremented to ask the piano roll to fit the pattern into view. */
+  fitRequest: number
   selectTrack: (id: string | null) => void
   setSelection: (ids: Iterable<string>) => void
   setTool: (tool: EditTool) => void
@@ -36,6 +38,7 @@ interface UiState {
   setZoom: (zoom: { x?: number; y?: number }) => void
   setLastNote: (length: number, velocity?: number) => void
   toggleVelocity: () => void
+  requestFit: () => void
 }
 
 export const ZOOM_X = { min: 12, max: 400 }
@@ -55,6 +58,7 @@ export const useUiStore = create<UiState>()(
       lastNoteLength: PPQ / 4,
       lastVelocity: 100,
       showVelocity: true,
+      fitRequest: 0,
       selectTrack: (id) => set({ selectedTrackId: id, selectedNoteIds: new Set() }),
       setSelection: (ids) => set({ selectedNoteIds: new Set(ids) }),
       setTool: (tool) => set({ tool }),
@@ -66,6 +70,7 @@ export const useUiStore = create<UiState>()(
         })),
       setLastNote: (length, velocity) => set((s) => ({ lastNoteLength: length, lastVelocity: velocity ?? s.lastVelocity })),
       toggleVelocity: () => set((s) => ({ showVelocity: !s.showVelocity })),
+      requestFit: () => set((s) => ({ fitRequest: s.fitRequest + 1 })),
     }),
     {
       name: 'midigen-ui',

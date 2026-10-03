@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { togglePlay } from '../audio/transport'
 import { generate } from '../store/actions'
+import { redo, undo } from '../store/projectStore'
 
 /** True when a keystroke belongs to a text field or other control and must not trigger shortcuts. */
 export function isTypingTarget(target: EventTarget | null): boolean {
@@ -24,7 +25,16 @@ export function useGlobalHotkeys(): void {
         generate()
         return
       }
-      if (isTypingTarget(e.target) || e.repeat) return
+      if (isTypingTarget(e.target)) return
+      // Undo/redo (text fields keep their own native undo, handled above).
+      const key = e.key.toLowerCase()
+      if (mod && (key === 'z' || key === 'y')) {
+        e.preventDefault()
+        if (key === 'y' || e.shiftKey) redo()
+        else undo()
+        return
+      }
+      if (e.repeat) return
       // Space toggles playback; on a focused button it would also "click" it, so take it over.
       if (e.key === ' ' && !mod && !e.altKey) {
         e.preventDefault()

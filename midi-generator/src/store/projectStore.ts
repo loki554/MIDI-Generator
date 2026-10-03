@@ -25,7 +25,12 @@ export const useProjectStore = create<ProjectState>()(
   temporal(
     (set, get) => ({
       project: null,
-      setProject: (project) => set({ project }),
+      setProject: (project) => {
+        const first = get().project === null
+        set({ project })
+        // The first project is the baseline: undo should never empty the editor.
+        if (first) useProjectStore.temporal.getState().clear()
+      },
       updateMix: (trackId, patch) =>
         withoutHistory(() => {
           const { project } = get()

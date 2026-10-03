@@ -24,7 +24,7 @@ function App() {
         <SettingsPanel />
         <main className={styles.main}>
           <Transport />
-          <TrackList />
+          <TrackList className={styles.tracks} />
           <PianoRollPanel />
           <ExportBar />
         </main>

@@ -111,7 +111,31 @@
   "pianoRoll": {
     "title": "Piano Roll",
     "empty": "Generiere ein Pattern, um es hier zu bearbeiten.",
-    "emptyHint": "Noten zeichnen, verschieben und verlängern – wie in FL Studio."
+    "emptyHint": "Noten zeichnen, verschieben und verlängern – wie in FL Studio.",
+    "tool": "Werkzeug",
+    "tools": {
+      "draw": "Stift (P)",
+      "select": "Auswahl (E)",
+      "delete": "Radierer (D)"
+    },
+    "snap": "Raster",
+    "snapOff": "Aus",
+    "fit": "An Ansicht anpassen",
+    "velocity": "Velocity-Spur",
+    "velocityShort": "VEL",
+    "undo": "Rückgängig (Strg+Z)",
+    "redo": "Wiederholen (Strg+Y)",
+    "shortcuts": "Tastenkürzel",
+    "help": {
+      "draw": "Klick auf eine freie Stelle: neue Note, weiterziehen zum Verschieben.",
+      "select": "Umschalt+Ziehen: Rahmenauswahl · Strg+Umschalt+Ziehen oder Strg+Klick: zur Auswahl hinzufügen.",
+      "erase": "Rechtsklick (oder mit rechter Taste ziehen): Noten löschen.",
+      "resize": "Rechten Rand einer Note ziehen: Länge ändern.",
+      "snap": "Alt beim Ziehen halten: ohne Raster verschieben.",
+      "zoom": "Strg+Mausrad: Zeit zoomen · Alt+Mausrad: Zeilen zoomen.",
+      "ruler": "Lineal: Klick setzt den Cursor, Ziehen setzt eine Schleife, Doppelklick entfernt sie.",
+      "keys": "Entf löschen · Strg+A/C/X/V/D · ↑↓ Halbton (Umschalt: Oktave) · ←→ um Rasterschritt · Strg+Z/Y."
+    }
   },
   "export": {
     "title": "Export",

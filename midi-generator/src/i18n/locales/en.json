@@ -111,7 +111,31 @@
   "pianoRoll": {
     "title": "Piano roll",
     "empty": "Generate a pattern to edit it here.",
-    "emptyHint": "Draw, move and resize notes like in FL Studio."
+    "emptyHint": "Draw, move and resize notes like in FL Studio.",
+    "tool": "Tool",
+    "tools": {
+      "draw": "Draw (P)",
+      "select": "Select (E)",
+      "delete": "Delete (D)"
+    },
+    "snap": "Snap",
+    "snapOff": "Off",
+    "fit": "Fit to view",
+    "velocity": "Velocity lane",
+    "velocityShort": "VEL",
+    "undo": "Undo (Ctrl+Z)",
+    "redo": "Redo (Ctrl+Y)",
+    "shortcuts": "Shortcuts",
+    "help": {
+      "draw": "Click empty space: add a note, keep dragging to move it.",
+      "select": "Shift+drag: box select · Ctrl+Shift+drag or Ctrl+click: add to selection.",
+      "erase": "Right-click (or drag with the right button): delete notes.",
+      "resize": "Drag the right edge of a note: change its length.",
+      "snap": "Hold Alt while dragging to move without snapping.",
+      "zoom": "Ctrl+wheel: zoom time · Alt+wheel: zoom rows.",
+      "ruler": "Ruler: click to move the cursor, drag to set a loop, double-click to clear it.",
+      "keys": "Del delete · Ctrl+A/C/X/V/D · ↑↓ semitone (Shift: octave) · ←→ move by snap · Ctrl+Z/Y undo/redo."
+    }
   },
   "export": {
     "title": "Export",
