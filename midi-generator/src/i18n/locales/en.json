@@ -95,7 +95,8 @@
     "bpm": "BPM",
     "title": "Transport",
     "metronome": "Metronome",
-    "playHint": "Space"
+    "playHint": "Space",
+    "volume": "Master volume"
   },
   "tracks": {
     "title": "Tracks",

@@ -95,7 +95,8 @@
     "bpm": "BPM",
     "title": "Transport",
     "metronome": "Metronom",
-    "playHint": "Leertaste"
+    "playHint": "Leertaste",
+    "volume": "Gesamtlautstärke"
   },
   "tracks": {
     "title": "Spuren",

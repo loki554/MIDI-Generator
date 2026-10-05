@@ -1,4 +1,4 @@
-import { Play, Repeat, Square, Timer } from 'lucide-react'
+import { Play, Repeat, Square, Timer, Volume, Volume1, Volume2, VolumeX } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { engine, stop, togglePlay } from '../../audio/transport'
@@ -7,8 +7,9 @@ import { formatPosition } from '../../core/time'
 import { setTempo } from '../../store/actions'
 import { usePlaybackStore } from '../../store/playbackStore'
 import { useProjectStore } from '../../store/projectStore'
+import { usePrefsStore } from '../../store/prefsStore'
 import { useSettingsStore } from '../../store/settingsStore'
-import { IconButton, NumberField } from '../ui'
+import { IconButton, NumberField, RangeInput } from '../ui'
 import styles from './Transport.module.css'
 
 export function Transport() {
@@ -21,7 +22,10 @@ export function Transport() {
   const hasProject = useProjectStore((s) => s.project !== null)
   const projectBpm = useProjectStore((s) => s.project?.bpm)
   const settingsBpm = useSettingsStore((s) => s.settings.global.bpm)
+  const masterVolume = usePrefsStore((s) => s.masterVolume)
+  const setMasterVolume = usePrefsStore((s) => s.setMasterVolume)
   const positionRef = useRef<HTMLSpanElement>(null)
+  const VolumeIcon = masterVolume === 0 ? VolumeX : masterVolume < 0.34 ? Volume : masterVolume < 0.67 ? Volume1 : Volume2
 
   // Position readout: animated while playing, the cursor otherwise. Written to the
   // DOM directly so the transport doesn't re-render every frame.
@@ -63,6 +67,16 @@ export function Transport() {
         <span ref={positionRef} className={styles.positionValue} aria-live="off">
           1.1.1
         </span>
+      </div>
+      <div className={styles.master}>
+        <VolumeIcon className={styles.masterIcon} aria-hidden />
+        <RangeInput
+          className={styles.masterRange}
+          aria-label={t('transport.volume')}
+          valueText={`${t('transport.volume')}: ${Math.round(masterVolume * 100)}%`}
+          value={masterVolume}
+          onChange={setMasterVolume}
+        />
       </div>
       <NumberField
         className={styles.bpm}

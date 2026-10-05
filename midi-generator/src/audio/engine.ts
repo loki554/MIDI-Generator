@@ -20,6 +20,8 @@ const LOOKAHEAD = 0.12
 const INTERVAL_MS = 25
 const START_DELAY = 0.05
 const MAX_VOICES = 160
+/** Master gain at full volume; leaves headroom before the limiter. */
+const MASTER_LEVEL = 0.8
 
 export interface EngineState {
   project: Project | null
@@ -35,6 +37,7 @@ const sameLoop = (a: LoopRange | null, b: LoopRange | null) =>
 export class AudioEngine {
   private ctx: AudioContext | null = null
   private master: GainNode | null = null
+  private masterVolume = 1
   private buses = new Map<string, GainNode>()
   private voices = new Set<Voice>()
   /** Sample instruments; created lazily when a pack is first used. */
@@ -66,7 +69,7 @@ export class AudioEngine {
     if (!this.ctx) {
       const ctx = new AudioContext({ latencyHint: 'interactive' })
       const master = ctx.createGain()
-      master.gain.value = 0.8
+      master.gain.value = this.masterGain()
       // Gentle limiter so dense arrangements don't clip.
       const limiter = ctx.createDynamicsCompressor()
       limiter.threshold.value = -6
@@ -93,6 +96,17 @@ export class AudioEngine {
 
   get activeVoices(): number {
     return this.voices.size
+  }
+
+  /** Sets the master volume (0..1); applied smoothly, also before audio starts. */
+  setMasterVolume(volume: number): void {
+    this.masterVolume = volume
+    if (this.ctx && this.master) this.master.gain.setTargetAtTime(this.masterGain(), this.ctx.currentTime, 0.01)
+  }
+
+  private masterGain(): number {
+    // Same perceptual curve as the track faders.
+    return MASTER_LEVEL * this.masterVolume ** 1.5
   }
 
   async play(fromTick: Tick): Promise<void> {

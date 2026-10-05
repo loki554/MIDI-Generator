@@ -16,6 +16,7 @@ export const engine = new AudioEngine(
   () => usePlaybackStore.getState().setPlaying(false),
   () => void prepareSamples(),
 )
+engine.setMasterVolume(usePrefsStore.getState().masterVolume)
 
 /** Creates/resumes audio (call from a user gesture) — also starts sample loading. */
 export async function ensureAudio(): Promise<void> {
@@ -83,6 +84,7 @@ let lastSignature = instrumentSignature()
 
 usePrefsStore.subscribe((s, prev) => {
   if (s.soundSource !== prev.soundSource) void prepareSamples()
+  if (s.masterVolume !== prev.masterVolume) engine.setMasterVolume(s.masterVolume)
 })
 useProjectStore.subscribe(() => {
   const sig = instrumentSignature()

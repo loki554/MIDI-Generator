@@ -97,7 +97,8 @@
     "bpm": "BPM",
     "title": "Транспорт",
     "metronome": "Метроном",
-    "playHint": "Пробел"
+    "playHint": "Пробел",
+    "volume": "Общая громкость"
   },
   "tracks": {
     "title": "Треки",
