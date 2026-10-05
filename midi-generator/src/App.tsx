@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import styles from './App.module.css'
 import { ExportBar } from './components/ExportMenu/ExportBar'
 import { Header } from './components/Header/Header'
@@ -13,8 +13,15 @@ function App() {
   const theme = usePrefsStore((s) => s.theme)
   useGlobalHotkeys()
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
+  useLayoutEffect(() => {
+    const root = document.documentElement
+    if (root.dataset.theme === theme) return
+    // Swap colors instantly: otherwise controls with color transitions fade
+    // into the new theme while everything else has already switched.
+    root.dataset.themeSwitching = ''
+    root.dataset.theme = theme
+    root.getBoundingClientRect() // flush styles with transitions off (a call, so bundlers keep it)
+    delete root.dataset.themeSwitching
   }, [theme])
 
   return (

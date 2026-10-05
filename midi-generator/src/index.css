@@ -74,6 +74,13 @@ button:disabled {
   border: 0;
 }
 
+/* Set for one style flush while the theme changes (see App.tsx). */
+[data-theme-switching] *,
+[data-theme-switching] *::before,
+[data-theme-switching] *::after {
+  transition: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
