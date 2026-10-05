@@ -132,3 +132,8 @@ midi-generator/src/
   components/  React UI (settings panel, track list, transport, piano roll, export)
 docs/PLAN.md   development roadmap
 ```
+
+## License
+
+The code is released under the [MIT License](LICENSE). The sample packs are not part of this
+repository and keep their own licenses, listed in [Sample packs](#sample-packs).
